@@ -50,31 +50,37 @@ fye_results <-
       InPopulation = n(), 
        Logins = sum(`FYE-101 Login`),
        `Login Rate` = sum(`FYE-101 Login`)/n(),
-       `Regs` = sum(registration_count),
-      `Reg Rate` = sum(registration_count) / n(),
-       Starts = sum(start_count),
-      `Start Rate` = sum(start_count) / n()
+        #`Regs` = sum(registration_count),
+      #`Reg Rate` = sum(registration_count) / n(),
+       Starts = sum(started_count),
+      `Started Rate` = sum(started_count)/n(),
+      `Day 15 Starts` = sum(closed_won),
+      `Day 15 Start Rate` = sum(closed_won)/n()
+       #Starts = sum(start_count),
+      #`Start Rate` = sum(start_count) / n()
       #`FAFSA to Enroll Rate` = sum(Regs) / sum(fafsa_completed),
        #`App to Enroll` = sum(Regs) /sum(Apps) 
   ) %>% 
   rename(`Test Group` = testing_group) %>% 
  gt() %>%
      fmt_percent(columns = vars(
-      `Reg Rate`,
-      `Start Rate`,
-      `Login Rate`
+      #`Reg Rate`,
+      `Started Rate`,
+      `Login Rate`,
+      `Day 15 Start Rate`
      ), decimals = 1) %>%
      fmt_number(columns = vars(
     InPopulation,
-    Regs,
+    #Regs,
     Starts,
-    Logins
+    Logins,
+    `Day 15 Starts`
      ), decimals = 0) %>%
-      data_color(columns = vars(`Starts`), colors = "lightblue") %>%
+      data_color(columns = vars(`Logins`), colors = "lightblue") %>%
    tab_header(
     title = md("21EW4 FYE-101 Task: Test vs. Control")) %>% 
     tab_source_note(
-    source_note = c("Data Source:  Unify Opportunity, SSR - retrieved on 2/12/21"))
+    source_note = c("Data Source:  Unify Opportunity, SSR - retrieved on 2/15/21"))
   #%>%
      #data_color(columns = vars(`Melt Rate`), colors = "lightgreen") %>%
     #tab_options(
@@ -82,6 +88,10 @@ fye_results <-
       # table.font.size = 12
     #)
 
+#Starts = registered, had course interaction, stage name in unify = Started
+#Day 15 Starts = for day 15 when opportunity is moved to "closed won"
+
+#would be interesting to see broken out based on day 15 start vs. whether they logged in or not, irrespective of which test group they were in
 
 fye_results
   
@@ -91,5 +101,5 @@ fye_results
 
 ```{r}
 # Overall results save
-nofafsa_results %>% gtsave(filename = "nofafsa_21TW3_overall_20210211.png", path = here::here("imgs"))
+fye_results %>% gtsave(filename = "fye_task_21EW4_20210215.png", path = here::here("imgs"))
 ```

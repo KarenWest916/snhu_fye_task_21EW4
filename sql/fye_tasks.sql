@@ -15,13 +15,15 @@ SELECT
 	ELSE 'Test' END AS testing_group,
        Opp.ContactId AS contact_id,
        Opp.Id AS opportunity_id,
-	   t.Name AS term_name,
+	   ce.Term__c AS term_name,
+	   --t.Name AS term_name,
        o.StageName AS stage_name,
        o.Inquired_Date_Time__c AS inquired_date_time__c,
        o.Applied_Date_Time__c AS application_date_time__c,
        o.App_in_Progress_Date_Time__c AS application_in_progress_date_time__c,
        o.Accepted_Date_Time__c AS accepted_date_time__c,
        o.Registered_Date_Time__c AS registered_date_time__c,
+	   CE.Last_Course_LMS_Login_Date__c AS login_date_time,
        1 AS inquiry_count,
 	   	   CASE WHEN CE.Last_Course_LMS_Login_Date__c IS NULL THEN 0 ELSE 1 end AS 'FYE-101 Login',
        CASE
@@ -50,13 +52,21 @@ SELECT
            ELSE
                0
        END AS registration_count,
-       CASE
-           WHEN o.Registered_Date_Time__c IS NOT NULL
-                AND o.StageName IN ( 'Registered','Started','Closed Won' ) THEN
+	          CASE
+           WHEN (o.Registered_Date_Time__c IS NOT NULL
+                --AND o.StageName IN ( 'Registered','Started','Closed Won' ) THEN
+				AND o.Started_Date_time__c IS NOT NULL) then
                1
            ELSE
                0
-       END AS start_count
+       END AS started_count,
+	   CASE
+	   WHEN (o.Registered_Date_Time__c IS NOT NULL
+       AND o.StageName IN ('Closed Won')) THEN
+	   1
+	   ELSE
+       0 END AS closed_won
+
 
 FROM UnifyStaging.dbo.Opportunity o
     INNER JOIN
@@ -83,11 +93,23 @@ FROM UnifyStaging.dbo.Opportunity o
     ) AS Opp
         ON Opp.Id = o.Id
            AND Opp.RN = 1
-    left JOIN UnifyStaging.dbo.hed__Term__c t
-        ON t.Id = o.Term__c
-			LEFT JOIN [UnifyStaging].[dbo].hed__Course_Enrollment__c CE
-	ON Opp.ContactId = CE.hed__Contact__c	
-	WHERE t.name = '21EW4'
-	and ce.Course_ID__c = 'FYE-101'
+   -- inner JOIN UnifyStaging.dbo.hed__Term__c t
+      --  ON t.Id = o.Term__c
+			inner JOIN [UnifyStaging].[dbo].hed__Course_Enrollment__c CE
+			ON opp.id = ce.Opportunity__c
+	--student can have more than one opportunity, there were a few that did, joining on opportunity id instead of contact fixes this
+	--ON Opp.ContactId = CE.hed__Contact__c	
+	WHERE 
+	--t.name = '21EW4'
+	--and 
+	ce.Course_ID__c = 'FYE-101'
+	AND ce.Term__c = '21EW4'
+	AND ce.hed__Status__c = 'Registered'
 --GROUP BY Opp.Name
 ORDER BY inquired_date_time__c
+
+
+--SELECT * FROM [UnifyStaging].[dbo].hed__Course_Enrollment__c ce
+--WHERE ce.Course_ID__c = 'FYE-101'
+--AND ce.hed__Contact__c = '0033l00002jdTtOAAU'
+--AND ce.Term__c = '21EW4'
