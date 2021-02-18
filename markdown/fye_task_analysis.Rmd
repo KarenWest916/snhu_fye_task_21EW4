@@ -29,7 +29,7 @@ con_data_reporting <- dbConnect(odbc::odbc(), .connection_string = "Driver={SQL 
 ```
 
 
-#import data from query
+#import data from query -don't use this, I am working on a new query that pulls from the experiment table
 ```{r}
 fye_df <- dbGetQuery(
   conn = con_data_reporting, 
@@ -80,7 +80,7 @@ fye_results <-
    tab_header(
     title = md("21EW4 FYE-101 Task: Test vs. Control")) %>% 
     tab_source_note(
-    source_note = c("Data Source:  Unify Opportunity, SSR - retrieved on 2/15/21"))
+    source_note = c("Data Source:  Unify Opportunity, SSR - retrieved on 2/18/21"))
   #%>%
      #data_color(columns = vars(`Melt Rate`), colors = "lightgreen") %>%
     #tab_options(
@@ -98,8 +98,8 @@ fye_results
 ```
 
 
-
+#why did my total population drop from 2/15 to 2/18???
 ```{r}
 # Overall results save
-fye_results %>% gtsave(filename = "fye_task_21EW4_20210215.png", path = here::here("imgs"))
+fye_results %>% gtsave(filename = "fye_task_21EW4_20210218.png", path = here::here("imgs"))
 ```
