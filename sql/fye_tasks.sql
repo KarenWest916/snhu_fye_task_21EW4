@@ -23,6 +23,7 @@ SELECT
        o.App_in_Progress_Date_Time__c AS application_in_progress_date_time__c,
        o.Accepted_Date_Time__c AS accepted_date_time__c,
        o.Registered_Date_Time__c AS registered_date_time__c,
+	   o.Started_Date_Time__c AS started_date_time__c,
 	   CE.Last_Course_LMS_Login_Date__c AS login_date_time,
        1 AS inquiry_count,
 	   	   CASE WHEN CE.Last_Course_LMS_Login_Date__c IS NULL THEN 0 ELSE 1 end AS 'FYE-101 Login',
@@ -66,6 +67,7 @@ SELECT
 	   1
 	   ELSE
        0 END AS closed_won
+
 
 
 FROM UnifyStaging.dbo.Opportunity o
