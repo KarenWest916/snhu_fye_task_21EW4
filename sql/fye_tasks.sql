@@ -91,7 +91,8 @@ FROM UnifyStaging.dbo.Opportunity o
                 ON RT.Id = o2.RecordTypeId
         WHERE RT.Name = 'Admission Opportunity'
               --Which campaign(s) are we searching for?
-              AND c.Name LIKE '%fye%'
+              --AND c.Name LIKE '%fye%'
+				AND C.id IN ('7013l000001dckiAAA', '7013l000001dcknAAA')
     ) AS Opp
         ON Opp.Id = o.Id
            AND Opp.RN = 1
@@ -106,7 +107,10 @@ FROM UnifyStaging.dbo.Opportunity o
 	--and 
 	ce.Course_ID__c = 'FYE-101'
 	AND ce.Term__c = '21EW4'
-	AND ce.hed__Status__c = 'Registered'
+
+	--now that the term started, students would have changed to registered
+	--AND ce.hed__Status__c = 'Registered'
+
 --GROUP BY Opp.Name
 ORDER BY inquired_date_time__c
 
