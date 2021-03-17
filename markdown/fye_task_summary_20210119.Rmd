@@ -1,0 +1,88 @@
+---
+title: "Southern New Hampshire University"
+subtitle: "[DRAFT] ReMap: FYE-101 Task & Email (UG)"
+author: "Karen West |  k.west2@snhu.edu"
+date: "Publication Date: 2021-03-XX <p></p> Updated: `r Sys.Date()`"
+output:
+  html_document: 
+    css: snhu-remap-test-style.css
+    include:
+      in_header: insert-logo.html
+    toc: true
+    toc_float: true
+---
+
+## Overview `r fontawesome::fa("binoculars")`
+<br>
+
+```{r echo=FALSE, out.width = "100%", fig.align='center'}
+knitr::include_graphics(here::here("imgs/fye_test_summary.png"))
+```
+
+<br>
+
+__Theory:__ The FYE-101 course is a free introductory orientation course designed to help new students familiarize themselves with the learning management system.
+
+__Hypothesis:__ Outreaching students to encourage them to log into FYE-101 will improve FYE-101 login rates.
+
+---
+
+
+## Test Design `r fontawesome::fa("flask")`
+
+__Test Metric:__ FYE-101 Login Rate, calculated as:
+$$FYE101 Login Rate  = \sum_{n=FYE101 Logins} / \sum_{n=Total Registered Students}$$
+
+__Testing Groups:__ Of all eligible members of the population (full criteria list below), control and experiment groups were assigned according to testing cells on the Unify contact.
+
++ Control Group: **50%** received FYE-101 email and task was created on the Unify record
++ Experiment Group: **50%** received no emails or tasks
+
+Tasks were created on Tuesday each week during the experiment timeframe and emails were sent at the same time. These treatments only occurred the first week that the student was eligible to receive; they did not occur on a weekly basis.
+
+**Experiment Population Eligibility (AKA InPopulation):**
+
++ Prospective UG students with a planned term start of 21EW4
++ Student is registered for FYE-101 but has not logged in
+
+<br>
+
+---
+
+## Outcomes & Learnings `r fontawesome::fa("chart-bar")`
+
+__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (4.8% change)**. This difference is statistically significant with a 99% confidence level and two-sided test.
+
+```{r echo=FALSE, out.width = "100%", fig.align='center'}
+knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210317.png"))
+```
+<br>
+
+
+
+<br>
+__Learnings:__
+
+__Melt Rate__ The start rate for the test group was **1.9 percentage points higher (2.2% change)**. This difference is statistically significant with a 95% confidence level and two-sided test.
+
+<br>
+
+__Next Steps:__
+
+Systematic Expansion
+
+
+---
+
+## Glossary of Terms `r fontawesome::fa("journal-whills")`
+
+__FYE:__ First Year Experience
+
+---
+
+## Appendix `r fontawesome::fa("paperclip")`
+
+
+
+<br>
+<br>

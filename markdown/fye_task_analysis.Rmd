@@ -40,11 +40,48 @@ fye_df <- dbGetQuery(
 ```
 
 
+#database connection 50333
+```{r connection-string,include=FALSE}
+#database connection
+con_data_reporting <- dbConnect(odbc::odbc(), .connection_string = "Driver={SQL Server Native Client 11.0};\n                          Server=COCE-LSTNR,50333;\n                          Database=AARDW;\n                          trusted_connection=yes;")
+```
+
+
+
+
+#import data from query
+```{r}
+melt_df <- dbGetQuery(
+  conn = con_data_reporting, 
+  statement = read_file(
+    file = here::here("sql","melt.sql")
+  )
+) %>% as_tibble()
+```
+
+
+
+
+# joining melt to results -->
+```{r}
+fye_results_melt_df <-
+as_tibble() %>%
+  right_join(x = fye_df,
+          y = melt_df,
+          by = c("colleague_id" = "StudentColleagueID")) 
+#%>%
+  #filter(StudentColleagueID != "Unknown") 
+
+#results_calls %>% replace_na()
+
+```
+
+
 #Aggregate test results to date
 ```{r}
 fye_results <- 
-  fye_df %>% 
-  #filter(fafsa_completed==0) %>% 
+  fye_results_melt_df %>% 
+  filter(!is.na(test_group)) %>% 
   group_by(testing_group) %>% 
   summarise(
       InPopulation = n(), 
@@ -52,10 +89,12 @@ fye_results <-
        `Login Rate` = sum(`FYE-101 Login`)/n(),
         #`Regs` = sum(registration_count),
       #`Reg Rate` = sum(registration_count) / n(),
-       Starts = sum(started_count),
-      `Started Rate` = sum(started_count)/n(),
-      `Day 15 Starts` = sum(closed_won),
-      `Day 15 Start Rate` = sum(closed_won)/n()
+      `Post Start Melts` = sum(EnrolledDay1)-sum(EnrolledDay15),
+      `Post Start Melt Rate` = 1-sum(EnrolledDay15)/sum(EnrolledDay1),
+       `Day 1 Starts` = sum(EnrolledDay1),
+      `Day 1 Start Rate` = sum(EnrolledDay1)/n(),
+      `Day 15 Starts` = sum(EnrolledDay15),
+      `Day 15 Start Rate` = sum(EnrolledDay15)/n()
        #Starts = sum(start_count),
       #`Start Rate` = sum(start_count) / n()
       #`FAFSA to Enroll Rate` = sum(Regs) / sum(fafsa_completed),
@@ -64,23 +103,24 @@ fye_results <-
   rename(`Test Group` = testing_group) %>% 
  gt() %>%
      fmt_percent(columns = vars(
-      #`Reg Rate`,
-      `Started Rate`,
+      `Day 1 Start Rate`,
+      `Day 15 Start Rate`,
+      `Post Start Melt Rate`,
       `Login Rate`,
       `Day 15 Start Rate`
      ), decimals = 1) %>%
      fmt_number(columns = vars(
     InPopulation,
-    #Regs,
-    Starts,
     Logins,
+    `Post Start Melts`,
+    `Day 1 Starts`,
     `Day 15 Starts`
      ), decimals = 0) %>%
       data_color(columns = vars(`Logins`), colors = "lightblue") %>%
    tab_header(
-    title = md("21EW4 FYE-101 Task: Test vs. Control")) %>% 
+    title = md("21EW4 FYE-101 Task & Email: Test vs. Control")) %>% 
     tab_source_note(
-    source_note = c("Data Source:  Unify Opportunity, SSR - retrieved on 2/24/21"))
+    source_note = c("Data Source:  Unify Opportunity, SSR - retrieved on 3/17/21"))
   #%>%
      #data_color(columns = vars(`Melt Rate`), colors = "lightgreen") %>%
     #tab_options(
@@ -93,6 +133,8 @@ fye_results <-
 
 #would be interesting to see broken out based on day 15 start vs. whether they logged in or not, irrespective of which test group they were in
 
+##need to be extra careful with filters to make sure I am grabbing the right test population
+
 fye_results
   
 ```
@@ -101,5 +143,5 @@ fye_results
 
 ```{r}
 # Overall results save
-fye_results %>% gtsave(filename = "fye_task_21EW4_20210224.png", path = here::here("imgs"))
+fye_results %>% gtsave(filename = "fye_task_21EW4_20210317.png", path = here::here("imgs"))
 ```

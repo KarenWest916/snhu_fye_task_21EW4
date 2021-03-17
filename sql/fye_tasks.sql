@@ -14,6 +14,7 @@ SELECT
 	CASE WHEN Opp.Name like '%control%' THEN 'Control'
 	ELSE 'Test' END AS testing_group,
        Opp.ContactId AS contact_id,
+	   Opp.Colleague_ID__c AS colleague_id,
        Opp.Id AS opportunity_id,
 	   ce.Term__c AS term_name,
 	   --t.Name AS term_name,
@@ -75,6 +76,7 @@ FROM UnifyStaging.dbo.Opportunity o
     (
         --Inner SELECT to grab all opportunities related to prospects in the campaigns we want, then grab most recent for analysis.
         SELECT cm.ContactId,
+				con.Colleague_ID__c,
 			   c.ID AS test_id,
                c.Name,
                o2.Id,
@@ -87,6 +89,8 @@ FROM UnifyStaging.dbo.Opportunity o
                 ON c.Id = cm.CampaignId
             INNER JOIN UnifyStaging.dbo.Opportunity o2
                 ON o2.Contact__c = cm.ContactId
+			INNER JOIN UnifyStaging.dbo.Contact con
+				ON con.Id = o2.Contact__c
             INNER JOIN UnifyStaging.dbo.RecordType RT
                 ON RT.Id = o2.RecordTypeId
         WHERE RT.Name = 'Admission Opportunity'
