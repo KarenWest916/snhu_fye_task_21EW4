@@ -66,7 +66,7 @@ melt_df <- dbGetQuery(
 ```{r}
 fye_results_melt_df <-
 as_tibble() %>%
-  right_join(x = fye_df,
+  inner_join(x = fye_df,
           y = melt_df,
           by = c("colleague_id" = "StudentColleagueID")) 
 #%>%
