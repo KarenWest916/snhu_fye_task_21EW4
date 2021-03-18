@@ -69,7 +69,7 @@ __Melt Rate__ The start rate for the test group was **1.9 percentage points high
 
 __Next Steps:__
 
-Systematic Expansion
+Systematic Expansion.
 
 
 ---
