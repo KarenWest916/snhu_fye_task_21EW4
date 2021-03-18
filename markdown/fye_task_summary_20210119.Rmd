@@ -28,7 +28,7 @@ __Hypothesis:__ Outreaching students to encourage them to log into FYE-101 will 
 ---
 
 
-## Test Design `r fontawesome::fa("flask")`
+## Test Design `r fontawesome::fa("flask")` {.tabset .tabset-pills} 
 
 __Test Metric:__ FYE-101 Login Rate, calculated as:
 $$FYE101 Login Rate  = \sum_{n=FYE101 Logins} / \sum_{n=Total Registered Students}$$
@@ -46,6 +46,22 @@ Tasks were created on Tuesday each week during the experiment timeframe and emai
 + Student is registered for FYE-101 but has not logged in
 
 <br>
+
+### Example Email
+
+
+```{r echo=FALSE, out.width = "75%", fig.align='center'}
+knitr::include_graphics(here::here("imgs/fye_101_email.png"))
+```
+
+
+### Example Task
+
+
+```{r echo=FALSE, out.width = "75%", fig.align='center'}
+knitr::include_graphics(here::here("imgs/fye_task_reminder.png"))
+```
+
 
 ---
 
@@ -82,7 +98,18 @@ __FYE:__ First Year Experience
 
 ## Appendix `r fontawesome::fa("paperclip")`
 
+:::{.note}
 
+
+__Interpretting the Results__
+
++ __Confidence Level:__ The percentage of confidence that the result is a consequence of the change made or treatment administered and not a result of random chance.
+
++ __Statistical Significance:__ A test result is said to be "statistically significant" when the difference between the two results is too big to have been a result of chance.
+
++ __One-Sided versus Two-Sided Test__ A one sided test is used when the statistical test only needs to prove that an increase in conversions (i.e. the metric) for the test group is significant; it does not consider whether any decrease in conversions is significant. A two-sided test evaluates the significance of the test group conversions being higher or lower. If we want to be certain that a treatment being tested does not have a negative impact on the metric, then a two-sided test should be conducted.
+
+:::
 
 <br>
 <br>

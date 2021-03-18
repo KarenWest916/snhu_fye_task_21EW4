@@ -96,12 +96,12 @@ fye_results <-
        `Login Rate` = sum(`FYE-101 Login`)/n(),
         #`Regs` = sum(registration_count),
       #`Reg Rate` = sum(registration_count) / n(),
-      `Post Start Melts` = sum(EnrolledDay1)-sum(EnrolledDay15),
-      `Post Start Melt Rate` = 1-sum(EnrolledDay15)/sum(EnrolledDay1),
        `Day 1 Starts` = sum(EnrolledDay1),
       `Day 1 Start Rate` = sum(EnrolledDay1)/n(),
       `Day 15 Starts` = sum(EnrolledDay15),
-      `Day 15 Start Rate` = sum(EnrolledDay15)/n()
+      `Day 15 Start Rate` = sum(EnrolledDay15)/n(),
+      `Post Start Melts` = sum(EnrolledDay1)-sum(EnrolledDay15),
+      `Post Start Melt Rate` = 1-sum(EnrolledDay15)/sum(EnrolledDay1)
        #Starts = sum(start_count),
       #`Start Rate` = sum(start_count) / n()
       #`FAFSA to Enroll Rate` = sum(Regs) / sum(fafsa_completed),
@@ -126,12 +126,24 @@ fye_results <-
       data_color(columns = vars(`Logins`), colors = "lightblue") %>%
    tab_header(
     title = md("21EW4 FYE-101 Task & Email: Test vs. Control")) %>% 
+      tab_footnote(
+    footnote = "Registered and had course interaction",
+    locations = cells_column_labels(
+      columns = vars(`Day 1 Starts`))) %>%
+      tab_footnote( 
+      footnote = "Day 1 start still enrolled on Day 15 ",
+    locations = cells_column_labels(
+      columns = vars(`Day 15 Starts`))) %>%
     tab_footnote(
-    footnote = "Definition of post-start melt",
+    footnote = "# of students the dropped between Day 1 and Day 15",
     locations = cells_column_labels(
       columns = vars(`Post Start Melts`))) %>%
+      tab_footnote(
+    footnote = "% of students the dropped between Day 1 and Day 15 divided by # enrolled on Day 1",
+    locations = cells_column_labels(
+      columns = vars(`Post Start Melt Rate`))) %>%
     tab_source_note(
-    source_note = c("Data Source:  Unify Opportunity, Course Enrollment - retrieved on 3/18/21"))
+    source_note = c("Data Source:  Unify Opportunity, Course Enrollment, New Starts Historical - retrieved on 3/18/21"))
   #%>%
      #data_color(columns = vars(`Melt Rate`), colors = "lightgreen") %>%
     #tab_options(
@@ -143,8 +155,6 @@ fye_results <-
 #Day 15 Starts = for day 15 when opportunity is moved to "closed won"
 
 #would be interesting to see broken out based on day 15 start vs. whether they logged in or not, irrespective of which test group they were in
-
-##need to be extra careful with filters to make sure I am grabbing the right test population
 
 # let's put these in this order:  move post start melts & post start melt rate to right .
 
