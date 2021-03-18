@@ -51,7 +51,7 @@ Tasks were created on Tuesday each week during the experiment timeframe and emai
 
 ## Outcomes & Learnings `r fontawesome::fa("chart-bar")`
 
-__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (4.8% change)**. This difference is statistically significant with a 99% confidence level and two-sided test.
+__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test.
 
 ```{r echo=FALSE, out.width = "100%", fig.align='center'}
 knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210317.png"))

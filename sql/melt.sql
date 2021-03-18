@@ -7,7 +7,7 @@ nsh.Student_SK,
 	   nsh.Term
 	   FROM aarda.[dbo].[NewStartsHistoricalReport] AS nsh
 
-	   --WHERE 
+	   WHERE 
 	   --nsh.StudentColleagueID = '1980318'
 
-    --  nsh.term LIKE '%21EW4%'
+      nsh.term LIKE '%21EW4%'
