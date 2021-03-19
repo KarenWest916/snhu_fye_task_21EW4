@@ -143,7 +143,7 @@ fye_results <-
     locations = cells_column_labels(
       columns = vars(`Post Start Melt Rate`))) %>%
     tab_source_note(
-    source_note = c("Data Source:  Unify Opportunity, Course Enrollment, New Starts Historical - retrieved on 3/18/21"))
+    source_note = c("Data Source:  Unify Opportunity, Course Enrollment, New Starts Historical - retrieved on 3/19/21"))
   #%>%
      #data_color(columns = vars(`Melt Rate`), colors = "lightgreen") %>%
     #tab_options(
@@ -166,5 +166,5 @@ fye_results
 
 ```{r}
 # Overall results save
-fye_results %>% gtsave(filename = "fye_task_21EW4_20210317.png", path = here::here("imgs"))
+fye_results %>% gtsave(filename = "fye_task_21EW4_20210319.png", path = here::here("imgs"))
 ```

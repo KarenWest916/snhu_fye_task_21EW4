@@ -42,7 +42,7 @@ Tasks were created on Tuesday each week during the experiment timeframe and emai
 
 **Experiment Population Eligibility (AKA InPopulation):**
 
-+ Prospective UG students with a planned term start of 21EW4
++ UG students with a planned term start of 21EW4
 + Student is registered for FYE-101 but has not logged in
 
 <br>
@@ -70,7 +70,7 @@ knitr::include_graphics(here::here("imgs/fye_task_reminder.png"))
 __Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test.
 
 ```{r echo=FALSE, out.width = "100%", fig.align='center'}
-knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210317.png"))
+knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210319.png"))
 ```
 <br>
 
@@ -101,13 +101,13 @@ __FYE:__ First Year Experience
 :::{.note}
 
 
-__Interpretting the Results__
+__Interpreting the Results__
 
 + __Confidence Level:__ The percentage of confidence that the result is a consequence of the change made or treatment administered and not a result of random chance.
 
-+ __Statistical Significance:__ A test result is said to be "statistically significant" when the difference between the two results is too big to have been a result of chance.
++ __Statistical Significance:__ A test result is said to be "statistically significant" when the difference between the results of the test and control groups is too big to have been a result of chance.
 
-+ __One-Sided versus Two-Sided Test__ A one sided test is used when the statistical test only needs to prove that an increase in conversions (i.e. the metric) for the test group is significant; it does not consider whether any decrease in conversions is significant. A two-sided test evaluates the significance of the test group conversions being higher or lower. If we want to be certain that a treatment being tested does not have a negative impact on the metric, then a two-sided test should be conducted.
++ __One-Sided vs. Two-Sided Test__ A one sided test is used when we only want to prove that the *increase* in conversions (i.e. the metric) that occurred for the test group is significant; it does not consider whether any *decrease* in conversions is significant. A two-sided test evaluates the significance of the test group conversions being higher *or* lower as compared to the control. If we want to be certain that a treatment being tested does not have a negative impact on the metric, then a two-sided test should be conducted.
 
 :::
 
