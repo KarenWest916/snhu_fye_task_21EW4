@@ -33,20 +33,21 @@ __Hypothesis:__ Outreaching students to encourage them to log into FYE-101 will 
 __Test Metric:__ FYE-101 Login Rate, calculated as:
 $$FYE101 Login Rate  = \sum_{n=FYE101 Logins} / \sum_{n=Total Registered Students}$$
 
-__Testing Groups:__ Of all eligible members of the population (full criteria list below), control and experiment groups were assigned according to testing cells on the Unify contact.
+__Testing Groups:__ Of all eligible members of the population (full criteria list below), control and experiment groups were assigned using the random split feature in Marketing Cloud.
 
 + Control Group: **50%** received FYE-101 email and task was created on the Unify record
 + Experiment Group: **50%** received no emails or tasks
 
-Tasks were created on Tuesday each week during the experiment timeframe and emails were sent at the same time. These treatments only occurred the first week that the student was eligible to receive; they did not occur on a weekly basis.
+Tasks were created on Tuesday each week and emails were also sent during the experiment timeframe on the same day as task creation. These treatments only occurred the first week that the student was eligible (see below) to receive; they did not occur on a weekly basis. 
 
 **Experiment Population Eligibility (AKA InPopulation):**
 
 + UG students with a planned term start of 21EW4
-+ Student is registered for FYE-101 but has not logged in
++ Student has been registered for at least 24 hours 
++ Student has not logged into FYE-101 
 
 <br>
-
+<br>
 
 ### Example Email
 
@@ -63,11 +64,11 @@ knitr::include_graphics(here::here("imgs/fye_101_email.png"))
 knitr::include_graphics(here::here("imgs/fye_task_reminder.png"))
 ```
 
-
+<br>
 
 ## Outcomes & Learnings `r fontawesome::fa("chart-bar")`
 
-__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (+4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions.
+__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (+4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions. See [appendix](#stats) for more detail on how to interpret the results.
 
 ```{r echo=FALSE, out.width = "100%", fig.align='center'}
 knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210319.png"))
@@ -78,12 +79,12 @@ knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210319.png"))
 __Learnings:__
 
 + __Melt Rate__ The post-start melt rate for the test group was **1.9 percentage points higher (+2.2% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions.
-
+<mark> __Karen's note:__ I think the original figure in here was based on Day 15 Starts vs. the experiment population which is technically not the post-start melt number. But if you look at Day 15 Starts, two-sided, 95%, it is significant. For post-melt only (Day 15 vs. Day 1), it's significant at 90% two-sided.</mark>
 <br>
 
 __Next Steps:__
 
-Systematic Expansion.
+***Systematic Expansion*** This task will be added to all new students registered for classes going forward and tasks will be generated as well. Students will receive the email the first time they are eligible to receive (registered for 24 hours, no login into FYE-101), but the tasks will be generated on a weekly basis even if there already was a task generated in a previous week.
 
 
 ---
@@ -94,12 +95,16 @@ __FYE:__ First Year Experience
 
 ---
 
+
+
 ## Appendix `r fontawesome::fa("paperclip")`
+
+<a id="stats"></a>
 
 :::{.note}
 
 
-__Interpreting the Results__
+__Interpreting the Results__ 
 
 + __Confidence Level:__ The percentage of confidence that the result is a consequence of the change made or treatment administered and not a result of random chance.  A 95% confidence interval indicates that we are 95% confident the test result is not due to random chance. 
 
