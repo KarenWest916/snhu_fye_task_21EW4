@@ -1,8 +1,8 @@
 ---
 title: "Southern New Hampshire University"
-subtitle: "[DRAFT] ReMap: FYE-101 Task & Email (UG)"
+subtitle: "ReMap: FYE-101 Task & Email (UG)"
 author: "Karen West |  k.west2@snhu.edu"
-date: "Publication Date: 2021-03-XX <p></p> Updated: `r Sys.Date()`"
+date: "Publication Date: 2021-03-23 <p></p> Updated: `r Sys.Date()`"
 output:
   html_document: 
     css: snhu-remap-test-style.css
@@ -21,7 +21,7 @@ knitr::include_graphics(here::here("imgs/fye_test_summary.png"))
 
 <br>
 
-__Theory:__ The FYE-101 course is a free introductory orientation course designed to help new students familiarize themselves with the learning management system.
+__Theory:__ The FYE-101 course is a free introductory orientation course designed to help new students familiarize themselves with the learning management system.  It is thought that if students log into this free course prior to their first term, they will be more prepared to start classes, and potentially less likely to drop or "melt".
 
 __Hypothesis:__ Outreaching students to encourage them to log into FYE-101 will improve FYE-101 login rates.
 
@@ -47,6 +47,7 @@ Tasks were created on Tuesday each week during the experiment timeframe and emai
 
 <br>
 
+
 ### Example Email
 
 
@@ -63,23 +64,20 @@ knitr::include_graphics(here::here("imgs/fye_task_reminder.png"))
 ```
 
 
----
 
 ## Outcomes & Learnings `r fontawesome::fa("chart-bar")`
 
-__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test.
+__Overall Results:__ As of 3/17/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (+4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions.
 
 ```{r echo=FALSE, out.width = "100%", fig.align='center'}
 knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210319.png"))
 ```
-<br>
-
 
 
 <br>
 __Learnings:__
 
-__Melt Rate__ The start rate for the test group was **1.9 percentage points higher (2.2% change)**. This difference is statistically significant with a 95% confidence level and two-sided test.
++ __Melt Rate__ The post-start melt rate for the test group was **1.9 percentage points higher (+2.2% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions.
 
 <br>
 
@@ -103,7 +101,7 @@ __FYE:__ First Year Experience
 
 __Interpreting the Results__
 
-+ __Confidence Level:__ The percentage of confidence that the result is a consequence of the change made or treatment administered and not a result of random chance.
++ __Confidence Level:__ The percentage of confidence that the result is a consequence of the change made or treatment administered and not a result of random chance.  A 95% confidence interval indicates that we are 95% confident the test result is not due to random chance. 
 
 + __Statistical Significance:__ A test result is said to be "statistically significant" when the difference between the results of the test and control groups is too big to have been a result of chance.
 
