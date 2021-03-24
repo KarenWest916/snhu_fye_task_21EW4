@@ -127,7 +127,7 @@ fye_results <-
    tab_header(
     title = md("21EW4 FYE-101 Task & Email: Test vs. Control")) %>% 
       tab_footnote(
-    footnote = "Registered and had course interaction",
+    footnote = "Registered and still enrolled on Day 1",
     locations = cells_column_labels(
       columns = vars(`Day 1 Starts`))) %>%
       tab_footnote( 
@@ -143,7 +143,7 @@ fye_results <-
     locations = cells_column_labels(
       columns = vars(`Post Start Melt Rate`))) %>%
     tab_source_note(
-    source_note = c("Data Source:  Unify Opportunity, Course Enrollment, New Starts Historical - retrieved on 3/19/21"))
+    source_note = c("Data Source:  Unify Opportunity, Course Enrollment, New Starts Historical - retrieved on 3/22/21"))
   #%>%
      #data_color(columns = vars(`Melt Rate`), colors = "lightgreen") %>%
     #tab_options(
