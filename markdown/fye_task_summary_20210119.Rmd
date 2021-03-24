@@ -2,7 +2,7 @@
 title: "Southern New Hampshire University"
 subtitle: "ReMap: FYE-101 Task & Email (UG)"
 author: "Karen West |  k.west2@snhu.edu"
-date: "Publication Date: 2021-03-23 <p></p> Updated: `r Sys.Date()`"
+date: "Publication Date: 2021-03-247 <p></p> Updated: `r Sys.Date()`"
 output:
   html_document: 
     css: snhu-remap-test-style.css
