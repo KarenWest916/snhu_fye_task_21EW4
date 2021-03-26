@@ -2,7 +2,7 @@
 title: "Southern New Hampshire University"
 subtitle: "ReMap: FYE-101 Task & Email (UG)"
 author: "Karen West |  k.west2@snhu.edu"
-date: "Publication Date: 2021-03-25 <p></p> Updated: `r Sys.Date()`"
+date: "Publication Date: 2021-03-26 <p></p> Updated: `r Sys.Date()`"
 output:
   html_document: 
     css: snhu-remap-test-style.css
@@ -75,23 +75,21 @@ knitr::include_graphics(here::here("imgs/fye_task_reminder.png"))
 
 ## Outcomes & Learnings `r fontawesome::fa("chart-bar")`
 
-__Overall Results:__ As of 3/22/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (+4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions. See [appendix](#stats) for more detail on how to interpret the results.
+__Overall Results:__ As of 3/26/21, the FYE-101 Login Rate for the test group was **4.1 percentage points higher (+4.8% change)**. This difference is statistically significant with a 95% confidence level and two-sided test of proportions. See [appendix](#stats) for more detail on how to interpret the results.
 
 ```{r echo=FALSE, out.width = "100%", fig.align='center'}
-knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210319.png"))
+knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210326.png"))
 ```
 
 
 <br>
 __Learnings:__
 
-+ __Melt Rate__ The post-start melt rate for the test group was **-1.4 percentage points lower (-15.1% change)**. This difference is not statistically significant with a 95% confidence level and two-sided test of proportions.
-
-
++ __Melt Rate__ The post-start melt rate for the test group was **-1.3 percentage points lower (-13.8% change)**. This difference is not statistically significant with a 95% confidence level and two-sided test of proportions. Even though the change is not statistically significant, the lower melt rate is a positive indication of the potential influence of student engagement with the course.
 
 __Next Steps:__
 
-***Systematic Expansion*** This task will be added to all new students registered for classes going forward and tasks will be generated as well. Students will receive the email the first time they are eligible to receive (registered for 24 hours, no login into FYE-101), but the tasks will be generated on a weekly basis even if there already was a task generated in a previous week.
+***Systematic Expansion*** This task will be added to all new students registered for classes going forward. Students will receive the email the first time they are eligible to receive (registered for 24 hours, no login into FYE-101), but the tasks will be generated on a weekly basis even if there already was a task generated in a previous week.
 
 
 ---
