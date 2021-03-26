@@ -85,7 +85,7 @@ knitr::include_graphics(here::here("imgs/fye_task_21EW4_20210326.png"))
 <br>
 __Learnings:__
 
-+ __Melt Rate__ The post-start melt rate for the test group was **-1.3 percentage points lower (-13.8% change)**. This difference is not statistically significant with a 95% confidence level and two-sided test of proportions. Even though the change is not statistically significant, the lower melt rate is a positive indication of the potential influence of student engagement with the course.
++ __Melt Rate__ The post-start melt rate for the test group was **-1.3 percentage points lower (-13.8% change)**. This difference is not statistically significant with a 95% confidence level and two-sided test of proportions. Even though this is not statistically significant, the lower melt rate is a positive indication of the potential influence of student engagement with the course and therefore there is a likely benefit to systematic expansion.
 
 __Next Steps:__
 
