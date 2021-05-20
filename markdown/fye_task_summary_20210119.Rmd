@@ -35,8 +35,9 @@ $$FYE101 Login Rate  = \sum_{n=FYE101 Logins} / \sum_{n=Total Registered Student
 
 __Testing Groups:__ Of all eligible members of the population (full criteria list below), control and experiment groups were assigned using the random split feature in Marketing Cloud.
 
-+ Control Group: **50%** received FYE-101 email and task was created on the Unify record
-+ Experiment Group: **50%** received no emails or tasks
++ Control Group: **50%** received no emails or tasks
++ Experiment Group: **50%** received FYE-101 email and task was created on the Unify record
+
 
 Tasks were created on Tuesday each week and emails were also sent during the experiment timeframe on the same day as task creation. These treatments only occurred the first week that the student was eligible (see below) to receive; they did not occur on a weekly basis. 
 
@@ -120,5 +121,18 @@ __Interpreting the Results__
 
 :::
 
+<br>
+
+:::{.note}
+
+
+__Updates__ 
+5/20: Corrected wording of treatment received for the test group in the Test Design section (originally had the wording of control/test groups reversed).
+
+
+
+:::
+
+<br>
 <br>
 <br>
